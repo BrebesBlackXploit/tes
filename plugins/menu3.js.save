@@ -1,0 +1,23 @@
+const { MessageType } = require("@adiwajshing/baileys")
+let moment = require ('moment-timezone')
+let handler = async (m, { conn, usedPrefix }) => {
+let name = m.fromMe ? conn.user : conn.contacts[m.sender]  
+let text = `
+\`\`\`NOTE - BOT TIDAK AKAN MERESPON DI DALAM GRUP JIKA PESAN SEMENTARA TIDAK DIMATIKAN.\`\`\`
+`.trim()
+
+await conn.send3Button(m.chat, text.trim(), 'Made with ❤ By RamaGans ID Ft ZeusXz', 'Menu', '.hah', 'Owner', '.owner', 'Donasi', '.donasi', { quoted: m })
+}
+handler.command = /^(menu|help)$/i
+handler.owner = false
+handler.mods = false
+handler.premium = false
+handler.group = false
+handler.private = false
+
+handler.admin = false
+handler.botAdmin = false
+
+handler.fail = null
+
+module.exports = handler
